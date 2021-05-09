@@ -9,11 +9,17 @@ from email import encoders
 
 data=pd.read_csv("Data.csv")
 
+
+#At the place of name put the name of what you have in the csv file like your name or Name or First name and 
+#same with the mail, what is the name of that column you have putten
+
 name_list = data["name"].tolist() 
 mail_list = data["mail"].tolist() 
 
 for name, mail in zip(name_list, mail_list):
-    im = Image.open('cer.png')
+    im = Image.open('cer.png') #over here put what is the name of your certificate template like cer.png
+    #make sure the csv file and certificate is in same folder
+    
     d = ImageDraw.Draw(im)
     location = (170, 900)
     text_color = (0, 137, 209)
@@ -22,8 +28,9 @@ for name, mail in zip(name_list, mail_list):
     im.save( name + ".png")
 
 
-    fromaddr = "Put you mail id"
-    toaddr = mail
+    fromaddr = "xyz@gmail.com"  #put you mail here.
+    password="blabla" #put your password here
+    toaddr = mail   #it waill take name from csv file
 
     # instance of MIMEMultipart
     msg = MIMEMultipart()
@@ -69,11 +76,12 @@ for name, mail in zip(name_list, mail_list):
     s.starttls()
 
     # Authentication
-    s.login(fromaddr, "Your passaword")
+    s.login(fromaddr, password)  
 
     # Converts the Multipart msg into a string
     text = msg.as_string()
 
     # sending the mail
     s.sendmail(fromaddr, toaddr, text)
+    print("sent")
     
