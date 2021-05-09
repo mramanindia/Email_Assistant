@@ -7,8 +7,8 @@
   <h2> what are the things needed</h2>
   You just needed a python enviroment and have to import some liabraries.
   The liabraries which you have to import are:<br>
-  <code> Pandas </code><br>
-  <code> numpy </code><br>
+  <code>import  Pandas </code><br>
+  <code> import numpy </code><br>
   and job done.
   
   Fork this project, put the certificate template in the same folder and at the place of mail, put your mail id.
